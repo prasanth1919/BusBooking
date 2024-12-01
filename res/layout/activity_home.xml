@@ -1,0 +1,336 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/home"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <!-- Profile Header -->
+    <LinearLayout
+        android:id="@+id/profile_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/profile"
+            android:scaleType="centerCrop"
+            android:contentDescription="Profile Image" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello, User"
+                android:fontFamily="@font/inter_extrabold"
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/welcome_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Where would you like to go today?"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#666666" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Map Preview Area (Placeholder) -->
+    <FrameLayout
+        android:id="@+id/map_preview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/profile_header"
+        android:layout_marginTop="16dp"
+        android:background="#E0E0E0"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Map Preview"
+            android:textSize="18sp"
+            android:textColor="#9E9E9E"
+            android:gravity="center" />
+    </FrameLayout>
+
+    <!-- First Row of Navigation Buttons (Book a Bus, Ride History, Support) -->
+    <LinearLayout
+        android:id="@+id/first_row_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/map_preview"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:weightSum="3"> <!-- 3 buttons evenly distributed -->
+
+        <!-- Book a Ride Button -->
+        <LinearLayout
+            android:id="@+id/book_ride_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="gone"> <!-- Initially hidden -->
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/book_bus"
+                android:contentDescription="Book a Ride Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book a Bus"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Ride History Button -->
+        <LinearLayout
+            android:id="@+id/ride_history_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="gone"> <!-- Initially hidden -->
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/history"
+                android:contentDescription="Ride History Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ride History"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Register Bus - Owner -->
+        <LinearLayout
+            android:id="@+id/register_bus_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bus"
+                android:contentDescription="Register Bus Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register Bus"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- View Buses - Owner -->
+        <LinearLayout
+            android:id="@+id/view_buses_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/list"
+                android:contentDescription="View Buses Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage Buses"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- View Bus Details - Driver -->
+        <LinearLayout
+            android:id="@+id/view_bus_details_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bus"
+                android:contentDescription="View Bus Details Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Bus Detials"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- View Trips - Driver -->
+        <LinearLayout
+            android:id="@+id/trips_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/trips"
+                android:contentDescription="View Trips Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trips"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- Support Button -->
+        <LinearLayout
+            android:id="@+id/support_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/support"
+                android:contentDescription="Support Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Support"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Second Row of Navigation Buttons (Register Bus, Cancel Bookings) -->
+    <LinearLayout
+        android:id="@+id/second_row_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/first_row_navigation"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2"> <!-- 2 buttons evenly distributed -->
+
+
+        <!-- Cancel Bookings Button -->
+        <LinearLayout
+            android:id="@+id/cancel_bookings_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/cancel"
+                android:contentDescription="Cancel Bookings Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel Bookings"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/swap_seats_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/swap_seat"
+                android:contentDescription="Swap Seats Icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Swap Seats"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,207 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/ownerRegisterBus"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Bus Number Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vehicle Registration Number"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/inter" />
+
+        <EditText
+            android:id="@+id/busNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Bus Number"
+            android:inputType="text"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background"
+            android:textColor="#000000"
+            android:fontFamily="@font/inter" />
+
+        <!-- Bus Seats Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bus Seats"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/inter" />
+
+        <Spinner
+            android:id="@+id/busSeatsSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/spinner_background"
+            android:entries="@array/bus_seats_options"
+            android:fontFamily="@font/inter"
+            android:padding="8dp" />
+
+        <!-- Driver Selection (Searchable Spinner) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Driver"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/inter" />
+
+        <Spinner
+            android:id="@+id/driverSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/spinner_background"
+            android:fontFamily="@font/inter"
+            android:padding="8dp" />
+
+        <!-- Schedule Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Schedule"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            android:textColor="#000000"
+            android:fontFamily="@font/inter" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E0E0E0"
+            android:padding="8dp"
+            android:layout_marginTop="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Spinner
+                    android:id="@+id/daySpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/spinner_background"
+                    android:entries="@array/days_of_week"
+                    android:fontFamily="@font/inter"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/tripTimeEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Trip Time"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:padding="12dp"
+                    android:background="@drawable/edit_text_background"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/inter"
+                    android:onClick="showTimePicker" />
+
+            </LinearLayout>
+
+            <!-- Start Location Selection -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Location"
+                android:textSize="16sp"
+                android:paddingTop="8dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/inter" />
+
+            <Spinner
+                android:id="@+id/startLocationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/spinner_background"
+                android:entries="@array/sri_lankan_routes"
+                android:fontFamily="@font/inter"
+                android:padding="8dp" />
+
+            <!-- Destination Selection -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Destination"
+                android:textSize="16sp"
+                android:paddingTop="8dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/inter" />
+
+            <Spinner
+                android:id="@+id/destinationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/spinner_background"
+                android:entries="@array/sri_lankan_routes"
+                android:fontFamily="@font/inter"
+                android:padding="8dp" />
+
+            <Button
+                android:id="@+id/addScheduleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Add Schedule"
+                android:backgroundTint="#000000"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"
+                android:fontFamily="@font/inter" />
+        </LinearLayout>
+
+        <!-- Schedule List Display -->
+        <TextView
+            android:id="@+id/scheduleListTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="No schedules added"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/inter" />
+
+        <!-- View Route Button -->
+        <Button
+            android:id="@+id/view_route_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="View Route"
+            android:backgroundTint="#000000"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:fontFamily="@font/inter" />
+
+        <!-- Register Bus Button -->
+        <Button
+            android:id="@+id/registerBusButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Register Bus"
+            android:backgroundTint="#000000"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:fontFamily="@font/inter" />
+
+    </LinearLayout>
+</ScrollView>

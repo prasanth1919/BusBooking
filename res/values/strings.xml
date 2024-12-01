@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Byft - Book. Ride. Go</string>
+
+    <string-array name="bus_seats_options">
+        <item>40</item>
+        <item>46</item>
+        <item>52</item>
+        <item>54</item>
+    </string-array>
+
+    <string-array name="sri_lankan_routes">
+        <item>Colombo Fort</item>
+        <item>Katunayake</item>
+        <item>Kadawatha</item>
+        <item>Galle</item>
+        <item>Matara</item>
+        <item>Hambantota</item>
+        <item>Kaduwela</item>
+    </string-array>
+
+    <string-array name="days_of_week">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+</resources>
